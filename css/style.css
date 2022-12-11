@@ -63,6 +63,7 @@ body {
   .main .movie__controls {
     height: 3.75rem;
     padding: 0.3125rem 10px;
+    gap: 0.3125rem;
   }
 }
 .main .movie__controls .controls__buttons {
