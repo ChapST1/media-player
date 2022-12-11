@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reproductor de video</title>
+    <!-- css -->
+    <link rel="stylesheet" href="./css/style.css" />
+    <!-- font awesome -->
+    <script
+      src="https://kit.fontawesome.com/c77019c43d.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <main class="main">
+      <div class="main__container movie">
+        <video class="movie__video"></video>
+        <aside class="movie__controls controls">
+          <div class="controls__buttons button">
+            <div class="button__prev">
+              <i class="fa-solid fa-forward-step"></i>
+            </div>
+            <div class="button__play">
+              <i class="fa-solid fa-play"></i>
+            </div>
+            <div class="button__next">
+              <i class="fa-solid fa-forward-step"></i>
+            </div>
+          </div>
+          <div class="controls__range range">
+            <input
+              type="range"
+              class="range__input"
+              name=""
+              id=""
+              min="0"
+              max="100"
+              value="0"
+            />
+            <span class="range__timer">00:00</span>
+          </div>
+          <div class="controls__sound sound-container">
+            <div class="range">
+              <input type="range" min="0" max="100" value="50" />
+            </div>
+            <div class="sound">
+              <i class="fa-solid fa-volume-high"></i>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </main>
+    <script type="module" src="./main.js"></script>
+  </body>
+</html>
