@@ -1,5 +1,5 @@
 //variables
-import { allVideos } from "./js/videos";
+import { allVideos } from "./js/videos.js";
 let index = 0;
 const video = document.querySelector(".movie__video");
 const playButton = document.querySelector(".button__play");
