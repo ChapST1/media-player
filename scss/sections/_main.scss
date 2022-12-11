@@ -108,6 +108,7 @@
         .range__input {
           display: block;
           width: 100%;
+          accent-color: #a8acb1;
         }
         .range__timer {
           font-size: 1em;
@@ -135,6 +136,9 @@
           visibility: hidden;
           @media (max-width: 1024px) {
             top: -300%;
+          }
+          &-input {
+            accent-color: #a8acb1;
           }
         }
         .sound-range-active {

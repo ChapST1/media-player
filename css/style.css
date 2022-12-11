@@ -144,6 +144,7 @@ body {
 .main .movie__controls .controls__range .range__input {
   display: block;
   width: 100%;
+  accent-color: #a8acb1;
 }
 .main .movie__controls .controls__range .range__timer {
   font-size: 1em;
@@ -173,6 +174,9 @@ body {
   .main .movie__controls .sound-container .sound__range {
     top: -300%;
   }
+}
+.main .movie__controls .sound-container .sound__range-input {
+  accent-color: #a8acb1;
 }
 .main .movie__controls .sound-container .sound-range-active {
   opacity: 1;
