@@ -3,6 +3,14 @@
   padding: 0;
   box-sizing: border-box;
 }
+html,
 body {
+  height: 100%;
   background-color: #e1e6ec;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  @media (max-width: 1024px) {
+    padding: 0 0.625rem;
+  }
 }

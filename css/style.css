@@ -4,12 +4,22 @@
   box-sizing: border-box;
 }
 
+html,
 body {
+  height: 100%;
   background-color: #e1e6ec;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+@media (max-width: 1024px) {
+  html,
+  body {
+    padding: 0 0.625rem;
+  }
 }
 
 .main {
-  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -18,37 +28,59 @@ body {
   position: relative;
   height: 50%;
 }
+@media (max-width: 1024px) {
+  .main .movie {
+    width: 100%;
+  }
+}
 .main .movie__video {
   width: 56.25rem;
   height: 100%;
   display: block;
   margin: 0 auto;
-  border-radius: 10px;
+  border-radius: 0.625rem;
+  transition: 0.5s;
+}
+@media (max-width: 1024px) {
+  .main .movie__video {
+    width: 100%;
+  }
 }
 .main .movie__controls {
   width: 100%;
-  height: 90px;
-  margin-top: 20px;
-  border-radius: 18px;
+  height: 5.625rem;
+  margin-top: 1.25rem;
+  border-radius: 1.125rem;
   background: #e1e6ec;
   box-shadow: 10px 10px 20px #c2c6cb, -10px -10px 20px #ffffff;
-  padding: 30px;
+  padding: 1.875rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 2.5rem;
+}
+@media (max-width: 1024px) {
+  .main .movie__controls {
+    height: 3.75rem;
+    padding: 0.3125rem 10px;
+  }
 }
 .main .movie__controls .controls__buttons {
   height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 15px;
+  gap: 0.9375rem;
+}
+@media (max-width: 1024px) {
+  .main .movie__controls .controls__buttons {
+    gap: 5px;
+  }
 }
 .main .movie__controls .controls__buttons .button__prev,
 .main .movie__controls .controls__buttons .button__next {
-  width: 60px;
-  height: 60px;
+  width: 3.75rem;
+  height: 3.75rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -59,13 +91,21 @@ body {
   color: rgba(0, 0, 0, 0.2549019608);
   cursor: pointer;
   transition: 0.5s;
+}
+@media (max-width: 1024px) {
+  .main .movie__controls .controls__buttons .button__prev,
+  .main .movie__controls .controls__buttons .button__next {
+    width: 1.875rem;
+    height: 1.875rem;
+    font-size: 1em;
+  }
 }
 .main .movie__controls .controls__buttons .button__prev i {
   transform: rotate(180deg);
 }
 .main .movie__controls .controls__buttons .button__play {
-  width: 75px;
-  height: 75px;
+  width: 4.6875rem;
+  height: 4.6875rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -76,6 +116,13 @@ body {
   box-shadow: 10px 10px 26px #abafb3, -10px -10px 26px #ffffff;
   cursor: pointer;
   transition: 0.5s;
+}
+@media (max-width: 1024px) {
+  .main .movie__controls .controls__buttons .button__play {
+    width: 2.1875rem;
+    height: 2.1875rem;
+    font-size: 1em;
+  }
 }
 .main .movie__controls .controls__buttons .button-active {
   color: rgba(0, 0, 0, 0.3529411765);
@@ -86,7 +133,12 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 15px;
+  gap: 0.9375rem;
+}
+@media (max-width: 1024px) {
+  .main .movie__controls .controls__range {
+    gap: 0.5rem;
+  }
 }
 .main .movie__controls .controls__range .range__input {
   display: block;
@@ -99,13 +151,13 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 5px;
+  gap: 0.3125rem;
   position: relative;
 }
-.main .movie__controls .sound-container .range {
-  width: 150px;
-  padding: 10px 0;
-  border-radius: 5px;
+.main .movie__controls .sound-container .sound__range {
+  width: 9.375rem;
+  padding: 0.625rem 0;
+  border-radius: 0.3125rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -116,14 +168,19 @@ body {
   opacity: 0;
   visibility: hidden;
 }
-.main .movie__controls .sound-container .range-active {
+@media (max-width: 1024px) {
+  .main .movie__controls .sound-container .sound__range {
+    top: -300%;
+  }
+}
+.main .movie__controls .sound-container .sound-range-active {
   opacity: 1;
   visibility: visible;
 }
-.main .movie__controls .sound-container .sound {
+.main .movie__controls .sound-container .sound__button {
   height: 100%;
-  width: 60px;
-  height: 60px;
+  width: 3.75rem;
+  height: 3.75rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -137,16 +194,16 @@ body {
   position: relative;
   z-index: 100;
 }
+@media (max-width: 1024px) {
+  .main .movie__controls .sound-container .sound__button {
+    width: 30px;
+    height: 30px;
+    font-size: 0.8em;
+  }
+}
 .main .movie__controls .sound-container .button-active {
   color: rgba(0, 0, 0, 0.3529411765);
   box-shadow: 10px 10px 26px #abafb3, -10px -10px 26px #ffffff, inset 28px 28px 56px #b9bdc2, inset -28px -28px 56px #ffffff;
-}
-.main .movie:-webkit-full-screen {
-  width: 100%;
-  height: 100vh;
-  position: absolute;
-  top: 0;
-  left: 0;
 }
 
 /*# sourceMappingURL=style.css.map */

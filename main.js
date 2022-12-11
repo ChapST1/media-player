@@ -7,6 +7,9 @@ const prevButton = document.querySelector(".button__prev");
 const nextButton = document.querySelector(".button__next");
 const rangeInput = document.querySelector(".range__input");
 const timer = document.querySelector(".range__timer");
+const soundButton = document.querySelector(".sound__button");
+const soundRange = document.querySelector(".sound__range");
+const soundRangeInput = document.querySelector(".sound__range-input");
 //events
 window.addEventListener("load", () => addFirstVideo(allVideos, index));
 playButton.addEventListener("click", () => {
@@ -18,7 +21,7 @@ video.addEventListener("timeupdate", () => {
   videIsEndign();
 });
 rangeInput.addEventListener("input", () => {
-  video.currentTime = (rangeInput.value * video.duration) / 100;
+  setVideoInRangeOfMotion();
 });
 prevButton.addEventListener("click", () => {
   index--; //|| (index = allVideos.length - 1); // last index
@@ -26,15 +29,20 @@ prevButton.addEventListener("click", () => {
     index = allVideos.length - 1;
   }
   addNextVideo(index);
-  console.log(index);
 });
 nextButton.addEventListener("click", () => {
   index++;
   addNextVideo(index);
-  if (index >= allVideos.length) {
-    index = -1;
+  if (index > allVideos.length - 1) {
+    index = 0;
   }
-  console.log(index);
+});
+soundButton.addEventListener("click", () => {
+  soundButton.classList.toggle("button-active");
+  soundRange.classList.toggle("sound-range-active");
+});
+soundRangeInput.addEventListener("input", () => {
+  soundVideo();
 });
 //functions
 function addFirstVideo(arr, index) {
@@ -69,10 +77,21 @@ function updateTimer() {
 function moveRangeInput() {
   rangeInput.value = Number((video.currentTime / video.duration) * 100);
 }
-function addNextVideo(i = 0) {
-  video.play();
-  playVideo();
-  addFirstVideo(allVideos, i);
+function setVideoInRangeOfMotion() {
+  video.currentTime = (rangeInput.value * video.duration) / 100;
+}
+function addNextVideo(i) {
+  if (i < allVideos.length) {
+    video.play();
+    playVideo();
+    addFirstVideo(allVideos, i);
+  } else {
+    video.play();
+    playVideo();
+    addFirstVideo(allVideos, 0);
+  }
+  /*
+   */
 }
 function videIsEndign() {
   try {
@@ -81,4 +100,8 @@ function videIsEndign() {
       playVideo();
     }
   } catch (error) {}
+}
+function soundVideo() {
+  let value = soundRangeInput.value;
+  video.volume = value / 100;
 }
